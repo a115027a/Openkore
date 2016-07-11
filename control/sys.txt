@@ -1,5 +1,5 @@
 ###### Localization settings ######
-locale
+locale zh
 
 ###### Localization compatibility ######
 # Enable to make Kore compatible with old 2.0 configs.

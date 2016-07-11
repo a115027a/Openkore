@@ -84,10 +84,10 @@ ama_dun01 229 7 ama_in02 119 181 0 c r0 n
 #alberta 28 229 payon 161 58 1200 c r2 c r0
 #alberta 28 229 morocc 156 47 1800 c r2 c r1
 #alberta 28 229 prontera 116 72 1800 c r2 c r2
-#izlude 134 88 geffen 120 39 1200 c r2 c r0
-#izlude 134 88 payon 161 58 1200 c r2 c r1
-#izlude 134 88 morocc 156 47 1200 c r2 c r2
-#izlude 134 88 aldebaran 168 112 1800 c r2 c r3
+izlude 128 148 geffen 120 39 1200 c r2 c r0
+#izlude 128 148 payon 161 58 1200 c r2 c r1
+#izlude 128 148 morocc 156 47 1200 c r2 c r2
+#izlude 128 148 aldebaran 168 112 1800 c r2 c r3
 # to add: Eden warper, Prontera warper
 
 # Non-VIP Warps
