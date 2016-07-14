@@ -46,9 +46,12 @@ sub new {
 		'035F' => ['sync', 'V', [qw(time)]],
 		'07EC' => ['item_take', 'a4', [qw(ID)]],
 		
-		'0970' => ['char_create', 'a24 C v2', [qw(name, slot, hair_style, hair_color)]],
-		'0064' => ['master_login', 'V Z24 a24 C', [qw(version username password_rijndael master_version)]],
 		'0368' => ['actor_name_request', 'a4', [qw(ID)]],
+		'0970' => ['char_create', 'a24 C v2', [qw(name, slot, hair_style, hair_color)]],
+		'07D7' => ['party_setting', 'V C2', [qw(exp itemPickup itemDivision)]],
+		'0801' => ['buy_bulk_vender', 'x2 a4 a4 a*', [qw(venderID venderCID itemInfo)]],
+		'0998' => ['send_equip', 'v V', [qw(index type)]],
+		'0064' => ['master_login', 'V Z24 a24 C', [qw(version username password_rijndael master_version)]]
 		);
 	$self->{packet_list}{$_} = $packets{$_} for keys %packets;
 
@@ -73,11 +76,10 @@ sub new {
 		item_take 07EC
 		
 		actor_name_request 0368
+		char_create 0970
 		party_setting 07D7
 		buy_bulk_vender 0801
-		char_create 0970
 		send_equip 0998
-
 	);
 
 	$self->{packet_lut}{$_} = $handlers{$_} for keys %handlers;
