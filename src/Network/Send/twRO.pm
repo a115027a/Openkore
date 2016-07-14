@@ -78,7 +78,21 @@ sub new {
 	$self->{packet_lut}{$_} = $handlers{$_} for keys %handlers;
 	$self->cryptKeys(0x25B40C44, 0x7F447F44,0x6F447F44 );
 
+	$self->{sell_mode} = 0;
 	return $self;
+}
+sub sendMove {
+	my $self = shift;
+
+	# The server won't let us move until we send the sell complete packet.
+	$self->sendSellComplete if $self->{sell_mode};
+
+	$self->SUPER::sendMove(@_);
+}
+sub sendSellComplete {
+	my ($self) = @_;
+	$self->sendToServer(pack 'C*', 0xD4, 0x09);
+	$self->{sell_mode} = 0;
 }
 sub sendCharCreate {
 	my ($self, $slot, $name, $hair_style, $hair_color) = @_;
