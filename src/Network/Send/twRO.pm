@@ -88,6 +88,19 @@ sub new {
 	$self->{sell_mode} = 0;
 	return $self;
 }
+sub sendSync {
+	my ($self, $initialSync) = @_;
+	# XKore mode 1 lets the client take care of syncing.
+	return if ($self->{net}->version == 1);
+
+	$self->sendToServer($self->reconstruct({switch => 'sync'}));
+	debug "Sent Sync\n", "sendPacket", 2;
+	
+	if ($ai_v{temp}{gameguard} && (time - $timeout{gameguard_request}{time} > 120)) {
+		undef $ai_v{temp}{gameguard};
+		$messageSender->sendRestart(1);
+	}
+}
 sub sendMove {
 	my $self = shift;
 
