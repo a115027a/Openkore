@@ -30,19 +30,19 @@ sub new {
 	my %packets = (
 		'0369' => ['actor_action', 'a4 C', [qw(targetID type)]],
 		'0360' => ['buy_bulk_request', 'a4', [qw(ID)]],
-		'0889' => ['item_drop', 'v2', [qw(index amount)]],
-		'0951' => ['friend_request', 'a*', [qw(username)]],
-		'088C' => ['homunculus_command', 'v C', [qw(commandType, commandID)]],
-		'0364' => ['actor_look_at', 'v C', [qw(head body)]],
-		'08A2' => ['map_login', 'a4 a4 a4 V C', [qw(accountID charID sessionID tick sex)]],
+		'0868' => ['item_drop', 'v2', [qw(index amount)]],
+		'0872' => ['friend_request', 'a*', [qw(username)]],
+		'0957' => ['homunculus_command', 'v C', [qw(commandType, commandID)]],
+		'0880' => ['actor_look_at', 'v C', [qw(head body)]],
+		'0362' => ['map_login', 'a4 a4 a4 V C', [qw(accountID charID sessionID tick sex)]],
 		'0437' => ['character_move','a3', [qw(coords)]],
-		'0952' => ['party_join_request_by_name', 'Z24', [qw(partyName)]],
+		'0A68' => ['party_join_request_by_name', 'Z24', [qw(partyName)]],
 		'096A' => ['actor_info_request', 'a4', [qw(ID)]],
-		'0A68' => ['skill_use', 'v2 a4', [qw(lv skillID targetID)]],
+		'02C4' => ['skill_use', 'v2 a4', [qw(lv skillID targetID)]],
 		'0438' => ['skill_use_location', 'v4', [qw(lv skillID x y)]],
-		'0802' => ['storage_item_add', 'v V', [qw(index amount)]],
-		'094B' => ['storage_item_remove', 'v V', [qw(index amount)]],
-		'08AD' => ['storage_password'],
+		'087E' => ['storage_item_add', 'v V', [qw(index amount)]],
+		'086E' => ['storage_item_remove', 'v V', [qw(index amount)]],
+		'094A' => ['storage_password'],
 		'035F' => ['sync', 'V', [qw(time)]],
 		'07EC' => ['item_take', 'a4', [qw(ID)]],
 		
@@ -59,19 +59,19 @@ sub new {
 	my %handlers = qw(
 		actor_action 0369
 		buy_bulk_request 0360
-		item_drop 0889
-		friend_request 0951
-		homunculus_command 088C
-		actor_look_at 0364
-		map_login 08A2
+		item_drop 0868
+		friend_request 0872
+		homunculus_command 0957
+		actor_look_at 0880
+		map_login 0362
 		character_move 0437
-		party_join_request_by_name 0952
+		party_join_request_by_name 0A68
 		actor_info_request 096A
-		skill_use 0A68
+		skill_use 02C4
 		skill_use_location 0438
-		storage_item_add 0802
-		storage_item_remove 094B
-		storage_password 08AD
+		storage_item_add 087E
+		storage_item_remove 086E
+		storage_password 094A
 		sync 035F
 		item_take 07EC
 		
@@ -83,7 +83,7 @@ sub new {
 	);
 
 	$self->{packet_lut}{$_} = $handlers{$_} for keys %handlers;
-	$self->cryptKeys(0x16720122, 0x49991D57,0xC86727B );
+	$self->cryptKeys(0x545D44FA,0x3F945ADE,0x1C4D2334);
 
 	$self->{sell_mode} = 0;
 	return $self;

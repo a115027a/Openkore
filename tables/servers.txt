@@ -543,7 +543,7 @@ chatLangCode 0
 addTableFolders pserver/AegisRO;eA;kRO/RagexeRE_2010_07_14a;translated/kRO_english;kRO
 
 [Taiwan - twRO: New]
-ip 218.32.4.151
+ip 218.32.4.218
 port 6900
 master_version 5
 version 1
