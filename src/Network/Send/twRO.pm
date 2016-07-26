@@ -46,7 +46,7 @@ sub new {
 		#PACKET_CZ_SEARCH_STORE_INFO'08A0'''''
 		'092F' => ['buy_bulk_buyer', 'a4 a4 a*', [qw(buyerID buyingStoreID itemInfo)]],
 		'0949' => ['buy_bulk_request', 'a4', [qw(ID)]],
-		'0899' => ['buy_bulk_closeShop'],''
+		'0899' => ['buy_bulk_closeShop'],
 		'0968' => ['buy_bulk_openShop', 'a4 c a*', [qw(limitZeny result itemInfo)]],
 		'0945' => ['booking_register', 'v8', [qw(level MapID job0 job1 job2 job3 job4 job5)]],
 		#PACKET_CZ_JOIN_BATTLE_FIELD'086B'''''
@@ -88,7 +88,7 @@ sub new {
 	);
 
 	$self->{packet_lut}{$_} = $handlers{$_} for keys %handlers;
-	$self->cryptKeys(0x545D44FA,0x3F945ADE,0x1C4D2334);
+	$self->cryptKeys(0x5BC32DA8,0x26B433CF,0x3FD01956);
 
 	$self->{sell_mode} = 0;
 	return $self;
