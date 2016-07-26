@@ -1,1 +1,7 @@
-﻿
+﻿automacro closeproccess{
+console /Receive Gameguard!/
+timeout 2
+call {
+	do relog 600
+}
+}
